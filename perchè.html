@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
 
 </head>
 <body>
@@ -111,7 +113,20 @@
     <div class="blueprint-layer"></div>
 
     <!-- ROTORE WIREFRAME -->
-    <div id="rotor-3d"></div>
+<model-viewer id="rotor-3d"
+              src="assets/plus/turbine.glb"
+              alt="Rotore Industriale 3D"
+              auto-rotate
+              auto-rotate-delay="0"
+              rotation-per-second="20deg"
+              camera-controls
+              disable-zoom
+              interaction-prompt="none"
+              shadow-intensity="1"
+              exposure="1.2"
+              style="width:260px; height:260px; background:transparent;">
+</model-viewer>
+
 
 
     <div class="why-hero-grid">
