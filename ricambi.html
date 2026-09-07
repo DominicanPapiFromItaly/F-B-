@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>FEB Ricambi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/Logo.png" alt="FEB Soluzioni Meccaniche" class="logo-img">
+      </a>
+    </div>
+
+    <nav class="header-actions">
+      <a href="index.html">HOME</a>
+      <a href="storia.html">LA NOSTRA STORIA</a>
+
+      <div class="nav-item-with-overlay">
+        <div class="nav-trigger">
+          <a href="#servizi">PRODOTTI & SERVIZI</a>
+          <span class="nav-arrow"></span>
+        </div>
+
+        <div class="mega-overlay">
+          <ul>
+            <li><a href="compressori.html">Compressori</a></li>
+            <li><a href="pompe.html">Pompe</a></li>
+            <li><a href="riduttori.html">Riduttori</a></li>
+            <li><a href="valvole.html">Valvole</a></li>
+            <li><a href="turbine.html">Turbine</a></li>
+            <li><a href="ricambi.html">Ricambi macchinari industriali</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="perchè.html">PERCHÈ SCEGLIERE NOI</a>
+      <a href="contatti.html">CONTATTI</a>
+    </nav>
+
+    <div class="lang-switcher">
+      <a href="ricambi.html">
+        <img src="assets/it.png" alt="Italiano" class="lang-flag">
+      </a>
+      <span class="lang-arrow"></span>
+      <div class="lang-dropdown">
+        <a href="ricambiEN.html">
+          <img src="assets/gb.png" alt="English" class="lang-flag">
+        </a>
+      </div>
+    </div>
+
+    <div class="search-icon" onclick="performSearch()">
+      <i class="fas fa-search"></i>
+    </div>
+
+    <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+
+  </div>
+
+  <div class="search-overlay" id="searchOverlay">
+    <input type="text" id="searchField" placeholder="Cerca servizio ..." 
+           onkeydown="if(event.key==='Enter'){performSearch()}">
+  </div>
+
+</header>
+
+<!-- MENU MOBILE -->
+<div id="mobileMenu" class="mobile-menu">
+  <div class="mobile-menu-header">
+    <img src="assets/Logo.png" class="mobile-menu-logo" alt="FEB">
+  </div>
+
+  <ul class="mobile-menu-links">
+    <li><a href="index.html">HOME <span>›</span></a></li>
+    <li><a href="storia.html">LA NOSTRA STORIA <span>›</span></a></li>
+    
+    <li class="mobile-dropdown">
+      <div class="mobile-trigger">
+        PRODOTTI & SERVIZI
+        <span class="mobile-arrow" data-lucide="chevron-down"></span>
+      </div>
+
+      <ul class="mobile-submenu">
+        <li><a href="compressori.html">Compressori</a></li>
+        <li><a href="pompe.html">Pompe</a></li>
+        <li><a href="riduttori.html">Riduttori</a></li>
+        <li><a href="valvole.html">Valvole</a></li>
+        <li><a href="turbine.html">Turbine</a></li>
+        <li><a href="ricambi.html">Ricambi</a></li>
+      </ul>
+    </li>
+    
+    <li><a href="perchè.html">PERCHÈ SCEGLIERE NOI <span>›</span></a></li>
+    <li><a href="contatti.html">CONTATTI <span>›</span></a></li>
+  </ul>
+</div>
+
+<div id="pageContent">
+
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <div class="footer-left">
+      <img src="assets/Footer.png" alt="FEB Soluzioni Meccaniche" class="footer-logo">
+
+      <p class="footer-copy">
+        © <span id="year"></span> FEB Soluzioni Meccaniche<br>
+        <span class="footer-tax desktop-only">P.IVA: 01418601009 – C.F.: 05590910583</span>
+        <span class="footer-tax mobile-only">P.IVA: 01418601009<br>C.F. 05590910583</span>
+      </p>
+    </div>
+
+    <a href="privacy/privacy.html" class="footer-privacy">Privacy & Cookie Policy</a>
+
+    <div class="footer-right">
+      <h4>CONTATTI</h4>
+
+      <p>
+        <i class="fas fa-map-marker-alt"></i>
+        <strong>Sede Legale</strong><br>
+        <a href="https://www.google.it/maps/place/Via+Singen,+26,+00071+Pomezia+RM" target="_blank">
+          Via Singen 26/I/5 – Pomezia (RM)
+        </a>
+      </p>
+
+      <p>
+        <i class="fas fa-industry"></i>
+        <strong>Sede Amministrativa</strong><br>
+        <a href="https://www.google.com/maps?q=Str.+delle+Campore,+Terni+TR" target="_blank">
+          Str. delle Campore 12 – Terni (TR)
+        </a>
+      </p>
+
+      <p><i class="fas fa-phone"></i><a href="tel:+390744800179">+39 0744 800179</a></p>
+      <p><i class="fas fa-fax"></i><a href="tel:+390744814135">Fax +39 0744 814135</a></p>
+      <p><i class="fas fa-envelope"></i><a href="mailto:febsrltr@pec.it">febsrltr@pec.it</a></p>
+
+    </div>
+
+  </div>
+</footer>
+
+</div>
+
+<!-- BOT FLOATING BUTTON -->
+<div id="fb-bot-button">
+  <i class="fas fa-robot"></i>
+</div>
+
+<!-- BOT WINDOW -->
+<div id="fb-bot-window">
+  <div id="fb-bot-header">
+  <span class="bot-title">F&B Assistant AI</span>
+  <i id="fb-reset" class="fas fa-rotate-right"></i>
+</div>
+
+  <div id="fb-bot-messages">
+    <div class="bot-msg">
+      <p>Ciao! Sono F&B Assistant AI, come posso aiutarti?</p>
+    </div>
+  </div>
+
+  <div id="fb-bot-input">
+    <input type="text" id="fb-user-input" placeholder="Scrivi qui il tuo messaggio...">
+    <button id="fb-send-btn">
+      <i data-lucide="send"></i>
+    </button>
+  </div>
+</div>
+
+<script src="js/appIT.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FEB – Our History</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+
+    <div class="logo">
+      <a href="indexEN.html">
+        <img src="assets/Logo.png" alt="FEB Mechanical Solutions" class="logo-img">
+      </a>
+    </div>
+
+    <nav class="header-actions">
+      <a href="indexEN.html">HOME</a>
+      <a href="storiaEN.html">OUR HISTORY</a>
+
+      <div class="nav-item-with-overlay">
+        <div class="nav-trigger">
+          <a href="#services">PRODUCTS & SERVICES</a>
+          <span class="nav-arrow"></span>
+        </div>
+
+        <div class="mega-overlay">
+          <ul>
+            <li><a href="compressoriEN.html">Compressors</a></li>
+            <li><a href="pompeEN.html">Pumps</a></li>
+            <li><a href="riduttori.html">Gearboxes</a></li>
+            <li><a href="valvoleEN.html">Valves</a></li>
+            <li><a href="turbineEN.html">Turbines</a></li>
+            <li><a href="ricambiEN.html">Industrial Spare Parts</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="percheEN.html">WHY CHOOSE US</a>
+      <a href="contattiEN.html">CONTACTS</a>
+    </nav>
+
+    <div class="lang-switcher">
+      <a href="storiaEN.html">
+        <img src="assets/gb.png" alt="Italiano" class="lang-flag">
+      </a>
+      <span class="lang-arrow"></span>
+      <div class="lang-dropdown">
+        <a href="storia.html">
+          <img src="assets/it.png" alt="English" class="lang-flag">
+        </a>
+      </div>
+    </div>
+
+    <div class="search-icon" onclick="performSearch()">
+      <i class="fas fa-search"></i>
+    </div>
+
+    <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+
+  </div>
+
+  <div class="search-overlay" id="searchOverlay">
+    <input type="text" id="searchField" placeholder="Search service..."
+           onkeydown="if(event.key==='Enter'){performSearch()}">
+  </div>
+
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu">
+  <div class="mobile-menu-header">
+    <img src="assets/Logo.png" class="mobile-menu-logo" alt="FEB">
+  </div>
+
+  <ul class="mobile-menu-links">
+    <li><a href="indexEN.html">HOME <span>›</span></a></li>
+    <li><a href="storiaEN.html">OUR HISTORY <span>›</span></a></li>
+
+    <li class="mobile-dropdown">
+      <div class="mobile-trigger">
+        PRODUCTS & SERVICES
+        <span class="mobile-arrow" data-lucide="chevron-down"></span>
+      </div>
+
+      <ul class="mobile-submenu">
+        <li><a href="compressori.html">Compressors</a></li>
+        <li><a href="pompeEN.html">Pumps</a></li>
+        <li><a href="riduttoriEN.html">Gearboxes</a></li>
+        <li><a href="valvoleEN.html">Valves</a></li>
+        <li><a href="turbineEN.html">Turbines</a></li>
+        <li><a href="ricambiEN.html">Spare Parts</a></li>
+      </ul>
+    </li>
+
+    <li><a href="percheEN.html">WHY CHOOSE US <span>›</span></a></li>
+    <li><a href="contattiEN.html">CONTACTS <span>›</span></a></li>
+  </ul>
+</div>
+
+<section class="story-page">
+
+  <!-- 1. HERO -->
+  <section class="story-hero parallax-hero">
+    <div class="story-hero-inner reveal-up">
+      <div class="story-hero-text reveal-left">
+        <p class="story-hero-kicker">Our Story</p>
+        <h1>For over 40 years we have ensured operational continuity for Italian industries.</h1>
+        <p class="story-hero-sub">
+          From precision mechanics to advanced maintenance: F&B is the technical partner
+          for those who cannot afford downtime.
+        </p>
+      </div>
+
+      <div class="story-hero-image reveal-right">
+        <div class="story-hero-photo-placeholder floating-photo">
+          <span>F&B Team Photo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PROFESSIONAL TIMELINE -->
+  <section class="story-timeline">
+    <div class="section-header reveal-up">
+      <h2>The milestones of our growth</h2>
+      <p>From our foundation to technical leadership in industrial construction and maintenance.</p>
+    </div>
+
+    <div class="timeline-grid reveal-up">
+
+      <article class="timeline-item">
+        <div class="timeline-year">1982</div>
+        <h3>The Origins</h3>
+        <p>F&B was founded in 1982 by Mr. Luigi Bisogni, in an industrial context that demanded increasing levels of quality, reliability, and technical expertise.</p>
+        <p>F&B responded with a clear vision: bringing high standards of mechanical design and maintenance to a rapidly evolving market.</p>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-year">1980s–1990s</div>
+        <h3>Technical and Industrial Growth</h3>
+        <p>From the very beginning, the company stood out for its ability to handle complex issues related to machinery and industrial plants.</p>
+        <p>Special spare parts, maintenance services, and applied engineering became the pillars of its operational model.</p>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-year">2000–2010</div>
+        <h3>Evolution of Know‑How</h3>
+        <p>Decades of activity consolidated a unique technical heritage.</p>
+        <p>Special processes, certified materials, and highly qualified personnel positioned F&B as a national reference point.</p>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-year">Today</div>
+        <h3>Presence in Strategic Sectors</h3>
+        <p>F&B operates in the most demanding sectors of industrial mechanics.</p>
+        <p>The company’s solidity is demonstrated by the trust built over time.</p>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-year">Tomorrow</div>
+        <h3>Continuous Evolution</h3>
+        <p>The company continues to innovate, improve, and anticipate market needs.</p>
+        <p>Goal: delivering concrete added value, reliability, and technical vision.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 3. TODAY (NUMBERS) -->
+  <section class="story-today">
+    <div class="section-header reveal-up">
+      <h2>Who we are today</h2>
+      <p>Numbers that reflect operational continuity, experience, and trust built in the field.</p>
+    </div>
+
+    <div class="kpi-grid">
+      <article class="kpi-card kpi-zoom">
+        <div class="kpi-number kpi-counter">40+</div>
+        <p>Years of industry experience</p>
+      </article>
+
+      <article class="kpi-card kpi-zoom">
+        <div class="kpi-number kpi-counter">3000+</div>
+        <p>Technical interventions on machinery and plants</p>
+      </article>
+
+      <article class="kpi-card kpi-zoom">
+        <div class="kpi-number">2</div>
+        <p>Operational sites in Italy</p>
+      </article>
+
+      <article class="kpi-card kpi-zoom">
+        <div class="kpi-number">24/7</div>
+        <p>Support for plant continuity</p>
+      </article>
+
+      <article class="kpi-card kpi-zoom">
+        <div class="kpi-number">12+</div>
+        <p>Industrial sectors served</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4. PROFESSIONAL PHOTOS -->
+  <section class="story-photos">
+    <div class="section-header reveal-up">
+      <h2>A real company, inside our Clients’ plants</h2>
+      <p>Facilities, machinery, and people: industrial mechanics lived every day on the field.</p>
+    </div>
+
+    <div class="photo-grid">
+      <figure class="photo-card reveal-fade">
+        <div class="photo-placeholder">Facility Photo</div>
+        <figcaption>F&B facility and production areas.</figcaption>
+      </figure>
+
+      <figure class="photo-card reveal-fade">
+        <div class="photo-image-wrapper">
+          <img src="assets/Macchina.png" alt="Machinery Photo" class="photo-image" />
+        </div>
+        <figcaption>High‑precision mechanical machining.</figcaption>
+      </figure>
+
+      <figure class="photo-card reveal-fade">
+        <div class="photo-placeholder">Technical Team Photo</div>
+        <figcaption>Specialized industrial maintenance team.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 5. COMPANY VALUES -->
+  <section class="story-values">
+    <div class="section-header reveal-up">
+      <h2>The values behind every intervention</h2>
+      <p>Not just components and machines: operational continuity, safety, and responsibility toward Clients.</p>
+    </div>
+
+    <div class="values-grid">
+      <article class="value-card reveal-up">
+        <h3>Operational Reliability</h3>
+        <p>We reduce plant downtime and ensure production continuity.</p>
+      </article>
+
+      <article class="value-card reveal-up">
+        <h3>Precision and Quality</h3>
+        <p>High‑precision mechanical work with certified materials.</p>
+      </article>
+
+      <article class="value-card reveal-up">
+        <h3>Technical Expertise</h3>
+        <p>Decades of know‑how in the most demanding industrial sectors.</p>
+      </article>
+
+      <article class="value-card reveal-up">
+        <h3>Speed and Responsibility</h3>
+        <p>Punctual, traceable, and safety‑oriented interventions.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 6. FUTURE VISION -->
+  <section class="story-vision">
+    <div class="story-vision-inner reveal-up">
+      <div class="story-vision-text">
+        <h2>Our Vision</h2>
+        <p>We continue our evolution to deliver increasingly higher added value.</p>
+        <p>The future is made of more efficient plants, predictive maintenance, and advanced technical solutions.</p>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+<div id="pageContent">
+
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <div class="footer-left">
+      <img src="assets/Footer.png" alt="FEB Mechanical Solutions" class="footer-logo">
+
+      <p class="footer-copy">
+        © <span id="year"></span> FEB Mechanical Solutions<br>
+        <span class="footer-tax desktop-only">VAT: 01418601009 – TAX CODE: 05590910583</span>
+        <span class="footer-tax mobile-only">VAT: 01418601009<br>TAX CODE: 05590910583</span>
+      </p>
+    </div>
+
+    <a href="privacy/privacyEN.html" class="footer-privacy">Privacy & Cookie Policy</a>
+
+    <div class="footer-right">
+      <h4>CONTACTS</h4>
+
+      <p>
+        <i class="fas fa-map-marker-alt"></i>
+        <strong>Registered Office</strong><br>
+        <a href="https://www.google.it/maps/place/Via+Singen,+26,+00071+Pomezia+RM" target="_blank">
+          Via Singen 26/I/5 – Pomezia (RM)
+        </a>
+      </p>
+
+      <p>
+        <i class="fas fa-industry"></i>
+        <strong>Administrative Office</strong><br>
+        <a href="https://www.google.com/maps?q=Str.+delle+Campore,+Terni+TR" target="_blank">
+          Str. delle Campore 12 – Terni (TR)
+        </a>
+      </p>
+
+      <p><i class="fas fa-phone"></i><a href="tel:+390744800179">+39 0744 800179</a></p>
+      <p><i class="fas fa-fax"></i><a href="tel:+390744814135">Fax +39 0744 814135</a></p>
+      <p><i class="fas fa-envelope"></i><a href="mailto:febsrltr@pec.it">febsrltr@pec.it</a></p>
+
+    </div>
+
+  </div>
+</footer>
+
+</div>
+
+<!-- BOT FLOATING BUTTON -->
+<div id="fb-bot-button">
+  <i class="fas fa-robot"></i>
+</div>
+
+<!-- BOT WINDOW -->
+<div id="fb-bot-window">
+  <div id="fb-bot-header">
+    <span class="bot-title">F&B Assistant AI</span>
+    <i id="fb-reset" class="fas fa-rotate-right"></i>
+  </div>
+
+  <div id="fb-bot-messages">
+    <div class="bot-msg">
+      <p>Hello! I am the F&B Assistant AI, how can I help you?</p>
+    </div>
+  </div>
+
+  <div id="fb-bot-input">
+    <input type="text" id="fb-user-input" placeholder="Type your message...">
+    <button id="fb-send-btn">
+      <i data-lucide="send"></i>
+    </button>
+  </div>
+</div>
+
+<script src="js/appEN.js"></script>
+<script> lucide.createIcons(); </script>
+
+</body>
+</html>

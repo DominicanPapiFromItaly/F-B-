@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>FEB Compressori</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/Logo.png" alt="FEB Soluzioni Meccaniche" class="logo-img">
+      </a>
+    </div>
+
+    <nav class="header-actions">
+      <a href="index.html">HOME</a>
+      <a href="storia.html">LA NOSTRA STORIA</a>
+
+      <div class="nav-item-with-overlay">
+        <div class="nav-trigger">
+          <a href="#servizi">PRODOTTI & SERVIZI</a>
+          <span class="nav-arrow"></span>
+        </div>
+
+        <div class="mega-overlay">
+          <ul>
+            <li><a href="compressori.html">Compressori</a></li>
+            <li><a href="pompe.html">Pompe</a></li>
+            <li><a href="riduttori.html">Riduttori</a></li>
+            <li><a href="valvole.html">Valvole</a></li>
+            <li><a href="turbine.html">Turbine</a></li>
+            <li><a href="ricambi.html">Ricambi macchinari industriali</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="perchè.html">PERCHÈ SCEGLIERE NOI</a>
+      <a href="contatti.html">CONTATTI</a>
+    </nav>
+
+    <div class="lang-switcher">
+      <a href="compressori.html">
+        <img src="assets/it.png" alt="Italiano" class="lang-flag">
+      </a>
+      <span class="lang-arrow"></span>
+      <div class="lang-dropdown">
+        <a href="compressoriEN.html">
+          <img src="assets/gb.png" alt="English" class="lang-flag">
+        </a>
+      </div>
+    </div>
+
+    <div class="search-icon" onclick="performSearch()">
+      <i class="fas fa-search"></i>
+    </div>
+
+    <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+
+  </div>
+
+  <div class="search-overlay" id="searchOverlay">
+    <input type="text" id="searchField" placeholder="Cerca servizio ..." 
+           onkeydown="if(event.key==='Enter'){performSearch()}">
+  </div>
+
+</header>
+
+<!-- MENU MOBILE -->
+<div id="mobileMenu" class="mobile-menu">
+  <div class="mobile-menu-header">
+    <img src="assets/Logo.png" class="mobile-menu-logo" alt="FEB">
+  </div>
+
+  <ul class="mobile-menu-links">
+    <li><a href="index.html">HOME <span>›</span></a></li>
+    <li><a href="storia.html">LA NOSTRA STORIA <span>›</span></a></li>
+    
+    <li class="mobile-dropdown">
+      <div class="mobile-trigger">
+        PRODOTTI & SERVIZI
+        <span class="mobile-arrow" data-lucide="chevron-down"></span>
+      </div>
+
+      <ul class="mobile-submenu">
+        <li><a href="compressori.html">Compressori</a></li>
+        <li><a href="pompe.html">Pompe</a></li>
+        <li><a href="riduttori.html">Riduttori</a></li>
+        <li><a href="valvole.html">Valvole</a></li>
+        <li><a href="turbine.html">Turbine</a></li>
+        <li><a href="ricambi.html">Ricambi</a></li>
+      </ul>
+    </li>
+    
+    <li><a href="perchè.html">PERCHÈ SCEGLIERE NOI <span>›</span></a></li>
+    <li><a href="contatti.html">CONTATTI <span>›</span></a></li>
+  </ul>
+</div>
+
+
+  <div class="page-wrapper">
+
+    <!-- HERO TECNICO -->
+    <section class="compressors-hero">
+      <div class="hero-grid-overlay"></div>
+      <div class="compressors-hero-inner">
+        <div class="compressors-hero-text">
+          <p class="compressors-hero-kicker">Compressori centrifughi & alternativi</p>
+          <h1>Revisione certificata per macchine critiche e impianti che non possono fermarsi.</h1>
+          <p class="compressors-hero-sub">
+            Dalla diagnostica avanzata alla fornitura di ricambi, F&amp;B gestisce la revisione completa di compressori
+            centrifughi e alternativi per raffinerie, chimico, siderurgico e impianti di processo.
+          </p>
+
+          <div class="compressors-hero-badges">
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              API 617 &amp; API 618
+            </div>
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              Reverse engineering &amp; upgrade
+            </div>
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              Interventi on-site in Italia ed Europa
+            </div>
+          </div>
+
+          <div class="compressors-hero-ctas">
+            <button class="btn-primary">
+              Richiedi intervento
+            </button>
+            <button class="btn-secondary">
+              Invia lista ricambi / disegno
+            </button>
+          </div>
+        </div>
+
+        <div class="compressors-hero-image">
+          <div class="hero-photo-frame">
+            <div class="hero-orbit"></div>
+            <div class="hero-orbit-dot"></div>
+            <span>Immagine compressore centrifugo<br />in sezione, girante e alberi in evidenza.</span>
+            <div class="hero-photo-tag">Area compressori F&amp;B</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COSA FACCIAMO -->
+    <section class="section section-gray">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="section-kicker">Cosa facciamo</p>
+          <h2>Revisione completa, diagnostica e ricambi per compressori critici</h2>
+          <p>
+            Gestiamo l’intero ciclo di vita del compressore: dall’ispezione iniziale alla revisione in officina,
+            fino al supporto on-site e alla fornitura di parti di ricambio OEM e compatibili.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">⚙️</div>
+            <h3>Revisione completa</h3>
+            <p>
+              Smontaggio, pulizia, controllo dimensionale, sostituzione componenti usurati e rimontaggio secondo
+              specifiche del costruttore e normative API.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">📊</div>
+            <h3>Diagnostica avanzata</h3>
+            <p>
+              Analisi vibrazionale, controlli non distruttivi, misurazioni giochi e allineamenti per individuare
+              cause di guasto e prevenire fermi impianto.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">📦</div>
+            <h3>Ricambi OEM &amp; compatibili</h3>
+            <p>
+              Fornitura di giranti, alberi, tenute, valvole, cuscinetti e kit guarnizioni, anche tramite reverse
+              engineering certificato.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🕒</div>
+            <h3>Assistenza on-site 24/7</h3>
+            <p>
+              Squadre tecniche per interventi programmati o di emergenza su compressori installati in impianto,
+              con tempi di risposta rapidi.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PER QUALI MACCHINE -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="section-kicker">Per quali macchine</p>
+          <h2>Compressori centrifughi e alternativi in ambito industriale</h2>
+          <p>
+            Operiamo su compressori di diversi costruttori, in impianti di processo dove affidabilità, efficienza
+            e sicurezza sono requisiti non negoziabili.
+          </p>
+        </div>
+
+        <div class="machines-grid">
+          <article class="machine-card">
+            <div class="machine-meta">Compressori centrifughi</div>
+            <h3>API 617, multistadio, gas &amp; aria</h3>
+            <ul class="machine-list">
+              <li><span class="machine-bullet"></span> Macchine conformi API 617</li>
+              <li><span class="machine-bullet"></span> Compressori multistadio per gas di processo e aria</li>
+              <li><span class="machine-bullet"></span> Supporto per principali OEM internazionali</li>
+              <li><span class="machine-bullet"></span> Upgrade prestazionali e ottimizzazione efficienza</li>
+            </ul>
+          </article>
+
+          <article class="machine-card">
+            <div class="machine-meta">Compressori alternativi</div>
+            <h3>API 618, pistoni, gas di processo</h3>
+            <ul class="machine-list">
+              <li><span class="machine-bullet"></span> Compressori alternativi API 618</li>
+              <li><span class="machine-bullet"></span> Unità a pistoni per gas di processo e gas tecnici</li>
+              <li><span class="machine-bullet"></span> Analisi PV e diagnostica ciclo termodinamico</li>
+              <li><span class="machine-bullet"></span> Interventi su valvole, tenute, aste e guide</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESSO DI REVISIONE -->
+    <section class="section section-gray">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="section-kicker">Processo di revisione</p>
+          <h2>Un metodo strutturato per ridurre rischi e tempi di fermo</h2>
+          <p>
+            Ogni revisione segue un flusso tecnico definito, documentato e tracciabile, per garantire risultati
+            ripetibili e conformi alle specifiche di progetto.
+          </p>
+        </div>
+
+        <div class="process-timeline">
+          <div class="process-step">
+            <div class="process-step-title">1. Ispezione tecnica</div>
+            <p class="process-step-desc">
+              Raccolta dati di esercizio, ispezione visiva e verifiche preliminari in campo o in officina per
+              definire il piano di intervento.
+            </p>
+          </div>
+
+          <div class="process-step">
+            <div class="process-step-title">2. Smontaggio</div>
+            <p class="process-step-desc">
+              Smontaggio controllato del compressore, identificazione e catalogazione di ogni componente,
+              con report fotografico dedicato.
+            </p>
+          </div>
+
+          <div class="process-step">
+            <div class="process-step-title">3. Misurazioni &amp; diagnostica</div>
+            <p class="process-step-desc">
+              Misure dimensionali, controlli NDT, analisi giochi e tolleranze, verifica alberi, giranti, valvole
+              e organi in movimento.
+            </p>
+          </div>
+
+          <div class="process-step">
+            <div class="process-step-title">4. Revisione / ricambi</div>
+            <p class="process-step-desc">
+              Ripristino componenti, sostituzione parti usurate con ricambi OEM o compatibili, lavorazioni
+              meccaniche e bilanciatura rotori.
+            </p>
+          </div>
+
+          <div class="process-step">
+            <div class="process-step-title">5. Test &amp; consegna</div>
+            <p class="process-step-desc">
+              Test funzionali, controlli finali, documentazione tecnica e supporto alla rimessa in servizio
+              presso l’impianto del Cliente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RICAMBI DISPONIBILI -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="section-kicker">Ricambi disponibili</p>
+          <h2>Componenti critici per compressori centrifughi e alternativi</h2>
+          <p>
+            Forniamo ricambi nuovi, rigenerati o realizzati su disegno, con tracciabilità dei materiali e
+            controlli dimensionali certificati.
+          </p>
+        </div>
+
+        <div class="spares-layout">
+          <div>
+            <div class="spares-list">
+              <div class="spare-item">
+                <div class="spare-tag">1</div>
+                <span>Giranti e diffusori</span>
+              </div>
+              <div class="spare-item">
+                <div class="spare-tag">2</div>
+                <span>Alberi e bullgear</span>
+              </div>
+              <div class="spare-item">
+                <div class="spare-tag">3</div>
+                <span>Tenute meccaniche e labirinti</span>
+              </div>
+              <div class="spare-item">
+                <div class="spare-tag">4</div>
+                <span>Valvole di aspirazione e mandata</span>
+              </div>
+              <div class="spare-item">
+                <div class="spare-tag">5</div>
+                <span>Kit guarnizioni e O-ring</span>
+              </div>
+              <div class="spare-item">
+                <div class="spare-tag">6</div>
+                <span>Cuscinetti radiali e reggispinta</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="spares-photo">
+            Foto tecnica componenti: giranti, alberi, tenute, valvole e cuscinetti in primo piano.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section class="section section-gray">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="section-kicker">Case study</p>
+          <h2>Interventi reali su compressori in impianti critici</h2>
+          <p>
+            Alcuni esempi di progetti gestiti da F&amp;B su compressori installati in raffinerie e impianti di
+            processo ad alta criticità.
+          </p>
+        </div>
+
+        <div class="case-grid">
+          <article class="case-card">
+            <span class="case-label">Raffineria – Compressore centrifugo</span>
+            <h3>Revisione compressore gas di processo</h3>
+            <p class="case-meta">
+              Revisione completa di compressore centrifugo multistadio per linea gas in raffineria.
+            </p>
+            <ul class="case-results">
+              <li>✅ Riduzione del fermo impianto del <strong>30%</strong> rispetto alla precedente revisione</li>
+              <li>✅ Miglioramento efficienza stimato del <strong>12%</strong> sui consumi energetici</li>
+              <li>✅ Allineamento alle specifiche API e report tecnico completo</li>
+            </ul>
+            <span class="case-pill">Revisione completa</span>
+          </article>
+
+          <article class="case-card">
+            <span class="case-label">Impianto chimico – Compressore alternativo</span>
+            <h3>Upgrade valvole e diagnostica PV</h3>
+            <p class="case-meta">
+              Intervento su compressore alternativo API 618 con problemi ricorrenti di affidabilità.
+            </p>
+            <ul class="case-results">
+              <li>✅ Sostituzione valvole e ottimizzazione giochi di funzionamento</li>
+              <li>✅ Analisi PV e riduzione anomalie ciclo del <strong>40%</strong></li>
+              <li>✅ Aumento disponibilità macchina e riduzione interventi correttivi</li>
+            </ul>
+            <span class="case-pill">Diagnostica &amp; upgrade</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINALE -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="cta-final">
+          <h2>Parliamo del tuo compressore</h2>
+          <p>
+            Inviaci i dati macchina, il disegno o la lista ricambi: prepareremo una proposta tecnica
+            e un piano di intervento dedicato.
+          </p>
+          <div class="cta-final-actions">
+            <button class="btn-primary">Richiedi revisione compressore</button>
+            <button class="btn-secondary">Invia disegno o lista ricambi</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+<div id="pageContent">
+
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <div class="footer-left">
+      <img src="assets/Footer.png" alt="FEB Soluzioni Meccaniche" class="footer-logo">
+
+      <p class="footer-copy">
+        © <span id="year"></span> FEB Soluzioni Meccaniche<br>
+        <span class="footer-tax desktop-only">P.IVA: 01418601009 – C.F.: 05590910583</span>
+        <span class="footer-tax mobile-only">P.IVA: 01418601009<br>C.F. 05590910583</span>
+      </p>
+    </div>
+
+    <a href="privacy/privacy.html" class="footer-privacy">Privacy & Cookie Policy</a>
+
+    <div class="footer-right">
+      <h4>CONTATTI</h4>
+
+      <p>
+        <i class="fas fa-map-marker-alt"></i>
+        <strong>Sede Legale</strong><br>
+        <a href="https://www.google.it/maps/place/Via+Singen,+26,+00071+Pomezia+RM" target="_blank">
+          Via Singen 26/I/5 – Pomezia (RM)
+        </a>
+      </p>
+
+      <p>
+        <i class="fas fa-industry"></i>
+        <strong>Sede Amministrativa</strong><br>
+        <a href="https://www.google.com/maps?q=Str.+delle+Campore,+Terni+TR" target="_blank">
+          Str. delle Campore 12 – Terni (TR)
+        </a>
+      </p>
+
+      <p><i class="fas fa-phone"></i><a href="tel:+390744800179">+39 0744 800179</a></p>
+      <p><i class="fas fa-fax"></i><a href="tel:+390744814135">Fax +39 0744 814135</a></p>
+      <p><i class="fas fa-envelope"></i><a href="mailto:febsrltr@pec.it">febsrltr@pec.it</a></p>
+
+    </div>
+
+  </div>
+</footer>
+
+</div>
+
+<!-- BOT FLOATING BUTTON -->
+<div id="fb-bot-button">
+  <i class="fas fa-robot"></i>
+</div>
+
+<!-- BOT WINDOW -->
+<div id="fb-bot-window">
+  <div id="fb-bot-header">
+  <span class="bot-title">F&B Assistant AI</span>
+  <i id="fb-reset" class="fas fa-rotate-right"></i>
+</div>
+
+  <div id="fb-bot-messages">
+    <div class="bot-msg">
+      <p>Ciao! Sono F&B Assistant AI, come posso aiutarti?</p>
+    </div>
+  </div>
+
+  <div id="fb-bot-input">
+    <input type="text" id="fb-user-input" placeholder="Scrivi qui il tuo messaggio...">
+    <button id="fb-send-btn">
+      <i data-lucide="send"></i>
+    </button>
+  </div>
+</div>
+
+<script src="js/appIT.js"></script>
+
+</body>
+</html>
