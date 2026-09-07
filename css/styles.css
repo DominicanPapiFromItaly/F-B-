@@ -1415,18 +1415,17 @@ a {
     to   { transform: translateY(-80px); }
 }
 
-model-viewer#rotor-3d {
+#rotor-3d {
     position: absolute;
     right: 8%;
     top: 50%;
     transform: translateY(-50%);
     width: 260px;
     height: 260px;
-    z-index: 20;
+    display: block;
+    z-index: 20 !important;
     pointer-events: none;
 }
-
-
 
 /* HERO CONTATTI PREMIUM */
 .contact-hero-pro {
