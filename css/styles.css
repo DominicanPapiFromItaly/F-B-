@@ -1415,7 +1415,7 @@ a {
     to   { transform: translateY(-80px); }
 }
 
-#rotor-3d {
+#rotor-3d model-viewer{
     position: absolute;
     right: 8%;
     top: 50%;
