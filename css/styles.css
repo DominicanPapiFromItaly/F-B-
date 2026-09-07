@@ -2739,6 +2739,10 @@ a {
   .photo-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  .story-vision h2 {
+  font-size: 30px;
+}
 }
 
 @media (max-width: 600px) {
