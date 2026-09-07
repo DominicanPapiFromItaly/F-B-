@@ -1318,12 +1318,13 @@ a {
 }
 
 /* CANVAS ANIMAZIONE */
+/* CANVAS ANIMAZIONE */
 #why-hero-canvas {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 4; /* PRIMA ERA 1 */
 }
 
 /* TESTO */
@@ -1404,7 +1405,7 @@ a {
         linear-gradient(0deg, rgba(255,255,255,0.06) 1px, transparent 1px);
     background-size: 40px 40px;
     opacity: 0.08;
-    z-index: 3;
+    z-index: 2;
     pointer-events: none;
     animation: blueprintMove 18s linear infinite;
 }
@@ -1414,16 +1415,17 @@ a {
     to   { transform: translateY(-80px); }
 }
 
-#rotor-3d {
+model-viewer#rotor-3d {
     position: absolute;
     right: 8%;
     top: 50%;
     transform: translateY(-50%);
     width: 260px;
     height: 260px;
-    z-index: 20; /* sopra tutto */
+    z-index: 20;
     pointer-events: none;
 }
+
 
 
 /* HERO CONTATTI PREMIUM */
