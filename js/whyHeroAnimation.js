@@ -94,9 +94,10 @@ scene.add(light2);
 const loader = new THREE.GLTFLoader();
 let rotor;
 
-loader.load("assets/plus/turbina.glb", (gltf) => {
+loader.load("assets/plus/turbine.glb", (gltf) => {
     rotor = gltf.scene;
-    rotor.scale.set(1.4, 1.4, 1.4);
+    rotor.scale.set(1.2, 1.2, 1.2);
+    rotor.position.set(0, 0, 0);
     rotor.rotation.x = 0.3;
     rotor.rotation.y = 0.3;
     scene.add(rotor);
