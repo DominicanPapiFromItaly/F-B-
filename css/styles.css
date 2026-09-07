@@ -1421,7 +1421,7 @@ a {
     transform: translateY(-50%);
     width: 260px;
     height: 260px;
-    z-index: 6;
+    z-index: 20; /* sopra tutto */
     pointer-events: none;
 }
 
