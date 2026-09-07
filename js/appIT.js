@@ -415,3 +415,73 @@ window.addEventListener("scroll", () => {
     hero.classList.remove("parallax-active");
   }
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const img = document.getElementById("storyTechImage");
+
+  const frames = [
+    "assets/TurbinaOriginal/Turbina1.png",
+    "assets/TurbinaOriginal/Turbina2.png",
+    "assets/TurbinaOriginal/Turbina3.png",
+    "assets/TurbinaOriginal/Turbina4.png",
+    "assets/TurbinaOriginal/Turbina5.png",
+    "assets/TurbinaOriginal/Turbina6.png",
+    "assets/TurbinaOriginal/Turbina7.png",
+    "assets/TurbinaOriginal/Turbina8.png",
+    "assets/TurbinaOriginal/Turbina9.png",
+    "assets/TurbinaOriginal/Turbina10.png",
+    "assets/TurbinaOriginal/Turbina11.png",
+    "assets/TurbinaOriginal/Turbina12.png"
+  ];
+
+  // Preload
+  frames.forEach(src => {
+    const i = new Image();
+    i.src = src;
+  });
+
+  const wrapper = document.querySelector(".story-tech-scroll-wrapper");
+  const stickyElem = document.querySelector(".story-tech-sticky");
+
+  function updateFrame() {
+    const rect = wrapper.getBoundingClientRect();
+    
+    // Distanza dal top della finestra a cui la sezione si blocca (deve coincidere con top CSS di .story-tech-sticky)
+    const stickyTopOffset = 100; 
+
+    // Calcolo dell'altezza utile per lo scroll dell'animazione
+    const totalScrollableDistance = rect.height - window.innerHeight + stickyTopOffset;
+
+    // Distanza percorsa dallo scroll dall'inizio dell'effetto
+    const scrolled = stickyTopOffset - rect.top;
+
+    // Calcolo progresso tra 0 e 1
+    let progress = scrolled / totalScrollableDistance;
+
+    // Clamp dei valori tra 0 e 1
+    if (progress < 0) progress = 0;
+    if (progress > 1) progress = 1;
+
+    // Selezione del frame corretto
+    const frameIndex = Math.floor(progress * (frames.length - 1));
+    img.src = frames[frameIndex];
+
+    // Effetto dinamico opzionale (zoom/rotazione leggerissima)
+    if (progress > 0.1 && progress < 0.9) {
+      stickyElem.classList.add("zoom");
+    } else {
+      stickyElem.classList.remove("zoom");
+    }
+  }
+
+  window.addEventListener("scroll", updateFrame, { passive: true });
+  window.addEventListener("resize", updateFrame);
+  updateFrame();
+});
+
+// Dentro la funzione updateFrame():
+const rotationY = progress * 15; // Ruota di 15 gradi durante lo scroll
+const scale = 0.95 + (progress * 0.1); // Effetto zoom continuo integrato
+
+img.style.transform = `perspective(1000px) rotateY(${rotationY}deg) scale(${scale})`;

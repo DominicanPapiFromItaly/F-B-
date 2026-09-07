@@ -1,3 +1,4 @@
+
 const canvas = document.getElementById('why-hero-canvas');
 const ctx = canvas.getContext('2d');
 
@@ -69,3 +70,57 @@ function animate() {
 }
 
 animate();
+
+const container = document.getElementById('rotor-3d');
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+camera.position.z = 4;
+
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+renderer.setSize(container.clientWidth, container.clientHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
+container.appendChild(renderer.domElement);
+
+// LUCI PREMIUM
+const light1 = new THREE.DirectionalLight(0xffffff, 1.2);
+light1.position.set(3, 3, 5);
+scene.add(light1);
+
+const light2 = new THREE.AmbientLight(0xffffff, 0.4);
+scene.add(light2);
+
+// CARICA MODELLO
+const loader = new THREE.GLTFLoader();
+let rotor;
+
+loader.load("assets/plus/turbina.glb", (gltf) => {
+    rotor = gltf.scene;
+    rotor.scale.set(1.4, 1.4, 1.4);
+    rotor.rotation.x = 0.3;
+    rotor.rotation.y = 0.3;
+    scene.add(rotor);
+});
+
+// ANIMAZIONE
+function animate3D() {
+    requestAnimationFrame(animate3D);
+
+    if (rotor) {
+        rotor.rotation.y += 0.01; // rotazione premium
+    }
+
+    renderer.render(scene, camera);
+}
+
+animate3D();
+
+// RESPONSIVE
+window.addEventListener("resize", () => {
+    const w = container.clientWidth;
+    const h = container.clientHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+});
+
