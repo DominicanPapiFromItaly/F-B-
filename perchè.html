@@ -106,23 +106,17 @@
   </ul>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.152/examples/js/loaders/GLTFLoader.js"></script>
+
+
 <section class="why-hero-pro">
     <canvas id="why-hero-canvas"></canvas>
     <div class="blueprint-layer"></div>
 
     <!-- ROTORE WIREFRAME -->
-    <div class="rotor-wireframe">
-        <svg viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="46" class="ring" />
-            <g class="blades">
-                <path d="M50 8 L56 28 L44 28 Z" />
-                <path d="M92 50 L72 56 L72 44 Z" />
-                <path d="M50 92 L56 72 L44 72 Z" />
-                <path d="M8 50 L28 56 L28 44 Z" />
-            </g>
-            <circle cx="50" cy="50" r="8" class="center" />
-        </svg>
-    </div>
+    <div id="rotor-3d"></div>
+
 
     <div class="why-hero-grid">
         <div class="why-hero-left">
