@@ -6,8 +6,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+*{box-sizing:border-box}
+body{margin:0}
+
+.fb2{
+  --bg:#141A47; --ink:#ffffff; --dim:#9DA3C8; --accent:#C7CAE3;
+  --line:rgba(199,202,227,.24); --line-soft:rgba(199,202,227,.11);
+  position:relative; background:var(--bg); color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,sans-serif; -webkit-font-smoothing:antialiased;
+  transition:background .7s ease, color .7s ease}
+
+.fb2[data-theme="paper"]{
+  --bg:#ffffff; --ink:#1B2160; --dim:#6B7099; --accent:#2A3180;
+  --line:rgba(42,49,128,.28); --line-soft:rgba(42,49,128,.12)}
+
+.fb2-stage{position:relative;height:100svh;overflow:hidden;
+  display:flex;align-items:center;justify-content:center}
+
+.fb2-art{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:min(86vh,84vw);aspect-ratio:1;z-index:1;pointer-events:none}
+.fb2-art svg{width:100%;height:100%;overflow:visible}
+
+.fb2-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:min(70vh,66vw);aspect-ratio:1;z-index:0;opacity:0;pointer-events:none;
+  background:radial-gradient(circle,rgba(199,202,227,.34) 0%,rgba(199,202,227,.09) 42%,transparent 68%)}
+
+.fb2-head{position:absolute;z-index:5;top:clamp(26px,6vh,64px);left:0;right:0;
+  text-align:center;padding:0 24px;pointer-events:none}
+.fb2-head::before{content:"";position:absolute;left:0;right:0;
+  top:calc(-1 * clamp(26px,6vh,64px));height:calc(100% + clamp(96px,15vh,180px));
+  background:linear-gradient(to bottom,var(--bg) 0%,var(--bg) 34%,transparent 100%);
+  z-index:-1;transition:background .7s ease}
+.fb2-head h2{font-family:Archivo,sans-serif;font-weight:800;margin:0;
+  font-size:clamp(1.3rem,3.2vw,2.35rem);letter-spacing:-.032em;line-height:1.06}
+.fb2-head p{margin:.55em auto 0;max-width:54ch;color:var(--dim);
+  font-size:clamp(.78rem,1.3vw,.94rem);line-height:1.55}
+
+.fb2-copy{position:absolute;z-index:6;top:50%;transform:translateY(-50%);
+  left:clamp(22px,5.5vw,92px);width:min(34ch,33vw);pointer-events:none}
+.fb2-slide{position:absolute;top:0;left:0;width:100%;opacity:0}
+.fb2-year{font-family:Archivo,sans-serif;font-weight:800;color:var(--accent);
+  font-size:clamp(2.1rem,5.4vw,3.9rem);line-height:.92;letter-spacing:-.048em;
+  margin-bottom:.26em;font-variant-numeric:tabular-nums}
+.fb2-rule{width:52px;height:2px;background:var(--accent);margin-bottom:1.15em;border-radius:2px}
+.fb2-slide h3{font-family:Archivo,sans-serif;font-weight:700;margin:0 0 .62em;
+  font-size:clamp(1.05rem,2.1vw,1.68rem);letter-spacing:-.022em;line-height:1.16}
+.fb2-slide p{margin:0 0 .72em;color:var(--dim);font-size:clamp(.83rem,1.2vw,.96rem);line-height:1.66}
+.fb2-slide p:last-child{margin-bottom:0}
+
+.fb2-specs{position:absolute;z-index:6;top:50%;transform:translateY(-50%);
+  right:clamp(22px,5.5vw,92px);text-align:right;pointer-events:none}
+.fb2-spec{position:absolute;top:0;right:0;opacity:0;white-space:nowrap}
+.fb2-spec li{list-style:none;font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:clamp(.6rem,.85vw,.72rem);letter-spacing:.055em;text-transform:uppercase;
+  color:var(--dim);padding:.42em 0;display:flex;align-items:center;justify-content:flex-end;gap:12px}
+.fb2-spec ul{margin:0;padding:0}
+.fb2-spec li::before{content:"";width:clamp(26px,4vw,62px);height:1px;
+  background:linear-gradient(to right,transparent,var(--line))}
+.fb2-spec li:first-child{color:var(--accent)}
+
+.fb2-ticker{position:absolute;z-index:6;right:clamp(22px,5.5vw,92px);
+  bottom:clamp(26px,5vh,52px);display:flex;gap:3px;align-items:flex-end;height:16px}
+.fb2-ticker i{width:2px;height:7px;background:var(--line);display:block;
+  transition:height .25s ease, background .25s ease}
+.fb2-ticker i.on{height:16px;background:var(--accent)}
+
+.fb2-rail{position:absolute;z-index:6;left:clamp(22px,5.5vw,92px);
+  bottom:clamp(26px,5vh,52px);display:flex;gap:clamp(9px,1.6vw,18px);align-items:center}
+.fb2-rail button{appearance:none;border:0;background:none;cursor:pointer;padding:4px 0;
+  font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dim);opacity:.55;transition:opacity .3s,color .3s}
+.fb2-rail button.on{opacity:1;color:var(--accent)}
+
+.fb2-bar{position:absolute;z-index:7;left:0;bottom:0;height:2px;width:100%;background:var(--line-soft)}
+.fb2-bar span{display:block;height:100%;width:0;background:var(--accent)}
+
+.fb2-fallback{display:none;padding:64px 24px;max-width:760px;margin:0 auto}
+.fb2-fallback article{padding:26px 0;border-top:1px solid var(--line)}
+.fb2-fallback .fb2-year{font-size:2rem}
+
+@media (max-width:900px){
+  .fb2-art{width:96vw;top:31%}
+  .fb2-glow{width:86vw;top:31%}
+  .fb2-head p{display:none}
+
+  .fb2-copy{left:20px;right:20px;width:auto;top:auto;
+    bottom:clamp(62px,9vh,86px);transform:none}
+  .fb2-slide{top:auto;bottom:0}
+  .fb2-slide p:nth-of-type(2){display:none}
+  .fb2-year{font-size:clamp(2rem,11vw,2.9rem);margin-bottom:.18em}
+  .fb2-rule{margin-bottom:.8em;width:42px}
+  .fb2-slide h3{font-size:clamp(1.02rem,4.6vw,1.3rem);margin-bottom:.5em}
+  .fb2-slide p{font-size:.87rem;line-height:1.55}
+
+  .fb2-specs{display:none}
+
+  .fb2-rail{left:20px;gap:9px;bottom:20px}
+  .fb2-rail button{font-size:.54rem;letter-spacing:.05em}
+  .fb2-ticker{right:20px;bottom:20px}
+  .fb2-ticker i:nth-child(n+13){display:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .fb2-stage{display:none}
+  .fb2-fallback{display:block}
+}
+</style>
 
 </head>
 <body>
@@ -129,52 +240,288 @@
     </div>
   </section>
 
-  <!-- 2. PROFESSIONAL TIMELINE -->
-  <section class="story-timeline">
-    <div class="section-header reveal-up">
+  <section class="fb2" id="fb2" data-theme="paper">
+  <div class="fb2-stage" id="fb2Stage">
+    <div class="fb2-glow" id="fb2Glow"></div>
+    <div class="fb2-art" id="fb2Art"></div>
+
+    <div class="fb2-head">
       <h2>The milestones of our growth</h2>
-      <p>From our foundation to technical leadership in industrial construction and maintenance.</p>
+      <p>From our foundation to becoming a technical leader in industrial construction and maintenance.</p>
     </div>
 
-    <div class="timeline-grid reveal-up">
-
-      <article class="timeline-item">
-        <div class="timeline-year">1982</div>
+    <div class="fb2-copy" id="fb2Copy">
+      <article class="fb2-slide">
+        <div class="fb2-year">1982</div><div class="fb2-rule"></div>
         <h3>The Origins</h3>
-        <p>F&B was founded in 1982 by Mr. Luigi Bisogni, in an industrial context that demanded increasing levels of quality, reliability, and technical expertise.</p>
+        <p>F&B was founded in 1982 by Mr. Luigi Bisogni, in an industrial context that increasingly demanded quality, reliability, and technical expertise.</p>
         <p>F&B responded with a clear vision: bringing high standards of mechanical design and maintenance to a rapidly evolving market.</p>
       </article>
 
-      <article class="timeline-item">
-        <div class="timeline-year">1980s–1990s</div>
+      <article class="fb2-slide">
+        <div class="fb2-year">'80<span style="opacity:.4">–</span>'90</div><div class="fb2-rule"></div>
         <h3>Technical and Industrial Growth</h3>
-        <p>From the very beginning, the company stood out for its ability to handle complex issues related to machinery and industrial plants.</p>
-        <p>Special spare parts, maintenance services, and applied engineering became the pillars of its operational model.</p>
+        <p>From the very beginning, the company distinguished itself through its ability to tackle complex challenges related to industrial machinery and equipment.</p>
+        <p>Special spare parts, maintenance, and applied engineering became the pillars of its operational model.</p>
       </article>
 
-      <article class="timeline-item">
-        <div class="timeline-year">2000–2010</div>
+      <article class="fb2-slide">
+        <div class="fb2-year">2000<span style="opacity:.4">–</span>2010</div><div class="fb2-rule"></div>
         <h3>Evolution of Know‑How</h3>
         <p>Decades of activity consolidated a unique technical heritage.</p>
         <p>Special processes, certified materials, and highly qualified personnel positioned F&B as a national reference point.</p>
       </article>
 
-      <article class="timeline-item">
-        <div class="timeline-year">Today</div>
+      <article class="fb2-slide">
+        <div class="fb2-year">Today</div><div class="fb2-rule"></div>
         <h3>Presence in Strategic Sectors</h3>
-        <p>F&B operates in the most demanding sectors of industrial mechanics.</p>
+        <p>F&B operates within the most demanding areas of industrial mechanics.</p>
         <p>The company’s solidity is demonstrated by the trust built over time.</p>
       </article>
 
-      <article class="timeline-item">
-        <div class="timeline-year">Tomorrow</div>
+      <article class="fb2-slide">
+        <div class="fb2-year">Tomorrow</div><div class="fb2-rule"></div>
         <h3>Continuous Evolution</h3>
         <p>The company continues to innovate, improve, and anticipate market needs.</p>
-        <p>Goal: delivering concrete added value, reliability, and technical vision.</p>
+        <p>Our goal: to remain the technical partner industries can rely on today and for the next forty years.</p>
       </article>
-
     </div>
-  </section>
+
+    <div class="fb2-specs" id="fb2Specs">
+      <div class="fb2-spec"><ul><li>foundation</li><li>design</li><li>workshop</li></ul></div>
+      <div class="fb2-spec"><ul><li>special spare parts</li><li>maintenance</li><li>applied engineering</li></ul></div>
+      <div class="fb2-spec"><ul><li>special processes</li><li>certified materials</li><li>qualified personnel</li></ul></div>
+      <div class="fb2-spec"><ul><li>industrial mechanics</li><li>plants</li><li>reliability</li></ul></div>
+      <div class="fb2-spec"><ul><li>innovation</li><li>continuity</li><li>forty years</li></ul></div>
+    </div>
+
+    <nav class="fb2-rail" id="fb2Rail">
+      <button type="button" data-i="0">1982</button>
+      <button type="button" data-i="1">'80–'90</button>
+      <button type="button" data-i="2">2000–2010</button>
+      <button type="button" data-i="3">Today</button>
+      <button type="button" data-i="4">Tomorrow</button>
+    </nav>
+
+    <div class="fb2-ticker" id="fb2Ticker"></div>
+    <div class="fb2-bar"><span id="fb2Bar"></span></div>
+  </div>
+
+  <div class="fb2-fallback">
+    <h2>The milestones of our growth</h2>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+(function(){
+  var NS = 'http://www.w3.org/2000/svg';
+  var C = 500, BLADES = 18;
+  var art = document.getElementById('fb2Art');
+
+  function n(tag, a){ var e = document.createElementNS(NS, tag);
+    for (var k in a) e.setAttribute(k, a[k]); return e; }
+  function pol(r, deg){ var t=(deg-90)*Math.PI/180;
+    return [C + r*Math.cos(t), C + r*Math.sin(t)]; }
+
+  var svg = n('svg', { viewBox:'0 0 1000 1000', fill:'none' });
+
+  var defs = n('defs', {});
+  var grad = n('linearGradient', { id:'fbSteel', x1:'0', y1:'0', x2:'1', y2:'1' });
+  [['0%','currentColor','.62'],['46%','currentColor','.14'],['100%','currentColor','.42']]
+    .forEach(function(s){ grad.appendChild(n('stop',{offset:s[0],'stop-color':s[1],'stop-opacity':s[2]})); });
+  defs.appendChild(grad);
+  svg.appendChild(defs);
+
+  var gRingsOuter = n('g',{}), gArcs = n('g',{}), gRing = n('g',{}),
+      gTicks = n('g',{}), gDots = n('g',{}), gBlades = n('g',{}), gHub = n('g',{});
+
+  // anello esterno segmentato
+  var segs = [];
+  for (var s=0; s<12; s++){
+    var a0 = s*30 + 3, a1 = (s+1)*30 - 3, R = 452;
+    var p0 = pol(R,a0), p1 = pol(R,a1);
+    var seg = n('path', { d:'M'+p0[0]+' '+p0[1]+' A'+R+' '+R+' 0 0 1 '+p1[0]+' '+p1[1],
+      stroke:'currentColor','stroke-width':2.5,'stroke-linecap':'round',opacity:.30 });
+    gRingsOuter.appendChild(seg); segs.push(seg);
+  }
+
+  // archi luminosi (la firma)
+  var arcs = [];
+  var arcDef = [[418,150,2.4],[404,95,1.6],[388,205,1.2],[372,60,2.0],[356,130,1]];
+  for (var i=0; i<arcDef.length; i++){
+    var R2=arcDef[i][0], sweep=arcDef[i][1], w=arcDef[i][2];
+    var q0=pol(R2,0), q1=pol(R2,sweep);
+    var arc = n('path', { d:'M'+q0[0]+' '+q0[1]+' A'+R2+' '+R2+' 0 '+(sweep>180?1:0)+' 1 '+q1[0]+' '+q1[1],
+      stroke:'currentColor','stroke-width':w,'stroke-linecap':'round',opacity:0 });
+    gArcs.appendChild(arc); arcs.push(arc);
+  }
+
+  // tacche radiali fitte
+  var ticks = [];
+  for (var t=0; t<120; t++){
+    var deg = t*3, maj = (t%10===0);
+    var i0 = pol(maj?318:326, deg), i1 = pol(338, deg);
+    var tk = n('line', { x1:i0[0], y1:i0[1], x2:i1[0], y2:i1[1],
+      stroke:'currentColor','stroke-width':maj?1.8:1, opacity:maj?.5:.22 });
+    gTicks.appendChild(tk); ticks.push(tk);
+  }
+
+  // cassa
+  gRing.appendChild(n('circle',{cx:C,cy:C,r:344,stroke:'currentColor','stroke-width':1.4,opacity:.28}));
+  gRing.appendChild(n('circle',{cx:C,cy:C,r:308,stroke:'currentColor','stroke-width':1,opacity:.16}));
+
+  // reticolo di punti
+  var dots = [];
+  for (var gx=-4; gx<=4; gx++) for (var gy=-4; gy<=4; gy++){
+    if (Math.sqrt(gx*gx+gy*gy) > 4.2) continue;
+    var d = n('circle',{ cx:C+gx*26, cy:C+gy*26, r:1.5, fill:'currentColor', opacity:0 });
+    gDots.appendChild(d); dots.push(d);
+  }
+
+  // pale
+  var blades = [], shifts = [];
+  var BLADE = 'M -23 -72 C -34 -132 -31 -196 -12 -246 C -5 -262 4 -266 11 -257'
+            + ' C 27 -232 33 -178 27 -120 C 25 -98 22 -82 19 -71'
+            + ' C 8 -60 -10 -60 -23 -72 Z';
+  for (var b=0; b<BLADES; b++){
+    var rot = n('g', { transform:'rotate('+(b*(360/BLADES))+' '+C+' '+C+')' });
+    var shift = n('g', {});
+    var path = n('path', { d:BLADE, transform:'translate('+C+' '+C+')',
+      stroke:'currentColor','stroke-width':1.6, fill:'url(#fbSteel)','fill-opacity':0, opacity:.9 });
+    shift.appendChild(path); rot.appendChild(shift); gBlades.appendChild(rot);
+    blades.push(path); shifts.push(shift);
+  }
+
+  // mozzo
+  gHub.appendChild(n('circle',{cx:C,cy:C,r:74,stroke:'currentColor','stroke-width':2,opacity:.75}));
+  gHub.appendChild(n('circle',{cx:C,cy:C,r:52,stroke:'currentColor','stroke-width':1.2,opacity:.4}));
+  var bolts=[];
+  for (var v=0; v<10; v++){
+    var bp = pol(63, v*36);
+    var bo = n('circle',{cx:bp[0],cy:bp[1],r:4.6,fill:'currentColor',opacity:.55});
+    gHub.appendChild(bo); bolts.push(bo);
+  }
+  gHub.appendChild(n('circle',{cx:C,cy:C,r:15,fill:'currentColor',opacity:.85}));
+
+  [gRingsOuter,gArcs,gRing,gTicks,gDots,gBlades,gHub].forEach(function(g){ svg.appendChild(g); });
+  art.appendChild(svg);
+
+  // ticker
+  var ticker = document.getElementById('fb2Ticker');
+  var tickEls = [];
+  for (var k=0; k<24; k++){ var el2=document.createElement('i'); ticker.appendChild(el2); tickEls.push(el2); }
+
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.fb2-slide'));
+  var specs  = Array.prototype.slice.call(document.querySelectorAll('.fb2-spec'));
+  var railBtns = Array.prototype.slice.call(document.querySelectorAll('.fb2-rail button'));
+  var root = document.getElementById('fb2');
+  var bar = document.getElementById('fb2Bar');
+  var glow = document.getElementById('fb2Glow');
+  var isNarrow = window.matchMedia('(max-width:900px)').matches;
+
+  if (!window.gsap || !window.ScrollTrigger ||
+      window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    slides.forEach(function(s){ s.style.opacity=1; s.style.position='static'; });
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+
+  // stato di partenza: disegno tecnico su carta
+  gsap.set(blades, { 'fill-opacity':0, opacity:.85, strokeDasharray:640, strokeDashoffset:470 });
+  gsap.set(gArcs, { svgOrigin:'500 500', opacity:0 });
+  gsap.set(gDots.children, { opacity:0 });
+  gsap.set(segs, { opacity:0 });
+  gsap.set(bolts, { opacity:0 });
+  gsap.set(shifts, { y:0 });
+  gsap.set(gBlades, { svgOrigin:'500 500', rotation:0 });
+  gsap.set(gTicks, { svgOrigin:'500 500', rotation:0, opacity:.55 });
+  gsap.set(gArcs, { svgOrigin:'500 500', rotation:0 });
+  gsap.set(gRingsOuter, { svgOrigin:'500 500', rotation:0 });
+
+  var tl = gsap.timeline({
+    scrollTrigger:{
+      trigger:'#fb2', start:'top top', end:'+=560%',
+      pin:'#fb2Stage', scrub:.65, anticipatePin:1, invalidateOnRefresh:true,
+      snap: location.search.indexOf('nosnap') > -1 ? null :
+        { snapTo:[.1,.3,.5,.7,.9], duration:{min:.15,max:.55}, delay:.05, ease:'power1.inOut' },
+      onUpdate:function(self){
+        var p = self.progress;
+        bar.style.width = (p*100).toFixed(2)+'%';
+        var idx = Math.min(4, Math.floor(p*5));
+        railBtns.forEach(function(b,i){ b.classList.toggle('on', i===idx); });
+        root.setAttribute('data-theme', p < .28 ? 'paper' : 'dark');
+        var lit = Math.round(p*(tickEls.length-1));
+        tickEls.forEach(function(e,i){ e.classList.toggle('on', i===lit); });
+      }
+    }
+  });
+
+  // ATTO 1 — 1982: il disegno si traccia
+  tl.to(blades, { strokeDashoffset:0, ease:'none', duration:.75, stagger:.012 }, .05)
+    .to(gTicks, { svgOrigin:'500 500', rotation:12, ease:'none', duration:1 }, 0);
+
+  // ATTO 2 — '80-'90: le pale prendono corpo
+  tl.to(blades, { 'fill-opacity':.55, ease:'power1.out', duration:.5, stagger:.018 }, 1.0)
+    .to(bolts,  { opacity:.55, duration:.4, stagger:.02 }, 1.1)
+    .to(segs,   { opacity:.30, duration:.5, stagger:.025 }, 1.25)
+    .to(gBlades,{ svgOrigin:'500 500', rotation:52, ease:'none', duration:1 }, 1.0);
+
+  // ATTO 3 — 2000-2010: vista esplosa
+  tl.to(shifts, { y:-96, ease:'power2.inOut', duration:.55, stagger:{each:.02,from:'start'} }, 2.05)
+    .to(gRing,  { svgOrigin:'500 500', opacity:.5, scale:1.06, duration:.55 }, 2.05)
+    .to(gTicks, { svgOrigin:'500 500', scale:1.1, opacity:.7, duration:.55 }, 2.05)
+    .to(dots,   { opacity:.30, duration:.4, stagger:.006 }, 2.2)
+    .to(gBlades,{ svgOrigin:'500 500', rotation:104, ease:'none', duration:1 }, 2.0);
+
+  // ATTO 4 — Oggi: si ricompone e gira a regime
+  tl.to(shifts, { y:0, ease:'power3.inOut', duration:.5, stagger:{each:.015,from:'end'} }, 3.02)
+    .to(blades, { 'fill-opacity':1, opacity:1, duration:.5 }, 3.02)
+    .to(dots,   { opacity:0, duration:.35 }, 3.02)
+    .to(gArcs,  { opacity:1, duration:.5 }, 3.15)
+    .to(arcs,   { opacity:.85, stroke:'#C7CAE3', duration:.5, stagger:.05 }, 3.15)
+    .to(glow,   { opacity:.75, duration:.6 }, 3.2)
+    .to(gBlades,{ svgOrigin:'500 500', rotation:268, ease:'none', duration:1 }, 3.0)
+    .to(gArcs,  { svgOrigin:'500 500', rotation:-150, ease:'none', duration:1 }, 3.0);
+
+  // ATTO 5 — Domani: la luce si propaga
+  tl.to(gRingsOuter, { svgOrigin:'500 500', scale:1.5, opacity:.5, ease:'power2.out', duration:.8 }, 4.05)
+    .to(gArcs,  { svgOrigin:'500 500', scale:1.24, ease:'power2.out', duration:.8 }, 4.05)
+    .to(gTicks, { svgOrigin:'500 500', opacity:.2, duration:.6 }, 4.05)
+    .to(blades, { 'fill-opacity':.55, opacity:.72, duration:.7 }, 4.1)
+    .to(glow,   { opacity:1, scale:1.25, duration:.8 }, 4.05)
+    .to(gBlades,{ svgOrigin:'500 500', rotation:400, ease:'none', duration:1 }, 4.0)
+    .to(gArcs,  { svgOrigin:'500 500', rotation:-260, ease:'none', duration:1 }, 4.0);
+
+  // testi e specifiche
+  function bind(list, dx){
+    list.forEach(function(el3, i){
+      var from = isNarrow ? 0 : dx;
+      if (i === 0){
+        gsap.set(el3, { opacity:1, x:0, y:0, filter:'blur(0px)' });
+      } else {
+        tl.fromTo(el3,
+          { opacity:0, x:from, y:isNarrow?20:0, filter:'blur(7px)' },
+          { opacity:1, x:0, y:0, filter:'blur(0px)', ease:'power2.out', duration:.20 }, i + .02);
+      }
+      tl.to(el3,
+        { opacity:0, x:-from*.5, filter:'blur(7px)', ease:'power2.in', duration:.16 }, i + .86);
+    });
+  }
+  bind(slides, -60);
+  bind(specs,   60);
+  tl.to('.fb2-head p', { opacity:0, y:-12, duration:.4 }, .2);
+
+  railBtns.forEach(function(b){
+    b.addEventListener('click', function(){
+      var i = +b.getAttribute('data-i'), st = tl.scrollTrigger;
+      window.scrollTo({ top: st.start + (st.end-st.start)*((i+.5)/5), behavior:'smooth' });
+    });
+  });
+})();
+</script>
 
   <!-- 3. TODAY (NUMBERS) -->
   <section class="story-today">
